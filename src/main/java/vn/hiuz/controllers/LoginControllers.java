@@ -11,7 +11,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import vn.hiuz.models.UserModel;
 import vn.hiuz.services.IUserService;
-import vn.hiuz.services.impl.UserService;
+import vn.hiuz.services.impl.UserServiceImpl;
 import vn.hiuz.utils.Constant;
 
 @WebServlet(urlPatterns = {"/login"})
@@ -19,7 +19,7 @@ public class LoginControllers extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
 	// Lấy toàn bộ hàm trong service
-	IUserService service = new UserService();
+	IUserService service = new UserServiceImpl();
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		req.getRequestDispatcher("/views/login.jsp").forward(req, resp);

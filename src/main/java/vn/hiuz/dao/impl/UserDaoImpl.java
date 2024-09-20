@@ -67,17 +67,20 @@ public class UserDaoImpl extends DBConnectMySQL implements IUserDao {
 
 	@Override
 	public void insert(UserModel user) {
-		String sql = "INSERT INTO users(id,username,email,password,images,fullname,email, phone, roleid,createDate) VALUES (?,?,?,?,?,?,?,?,?,?)";
+		String sql = "INSERT INTO users(username,email,password,images,fullname, phone, roleid,createDate) VALUES (?,?,?,?,?,?,?,?)";
 		try {
 		conn = super.getDatabaseConnection();
 		ps = conn.prepareStatement(sql);
 		
-		ps.setInt(1, user.getId());
-		ps.setString(2, user.getUsername());
-		ps.setString(3, user.getEmail());
-		ps.setString(4, user.getPassword());
-		ps.setString(5, user.getImages());
-		ps.setString(6, user.getFullname());
+		
+		ps.setString(1, user.getUsername());
+		ps.setString(2, user.getEmail());
+		ps.setString(3, user.getPassword());
+		ps.setString(4, user.getImages());
+		ps.setString(5, user.getFullname());
+		ps.setString(6, user.getPhone());
+		ps.setInt(7, user.getRoleid());
+		ps.setDate(8, user.getCreateDate());
 		
 		ps.executeUpdate();
 		
@@ -174,16 +177,17 @@ String sql = "select * from users where email = ?";
 	}
 
 public static void main(String[] args) {
+	IUserDao userDao = new UserDaoImpl();
 	try {
 		
-	IUserDao userDao = new UserDaoImpl();
-	System.out.println(userDao.findAll());
+	
+	//System.out.println(userDao.findAll());
 	}
 	catch (Exception e) {
 		e.printStackTrace();
 	}
 //	Insert
-//	userDao.insert(new UserModel(2,"abc1","abc@gmal.com","123","","abce"));
+	//userDao.insert(new UserModel("Hieuzz","hee@gmail.com", "123", "lam Trung Hieu", null, "1233", 3, null));
 //	Find All
 //	List<UserModel> list = userDao.findAll();
 //	
