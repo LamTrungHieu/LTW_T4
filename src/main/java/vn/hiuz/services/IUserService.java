@@ -10,4 +10,5 @@ public interface IUserService {
 	boolean checkExistUsername(String username);
 	boolean checkExistPhone(String phone);
 	void insert(UserModel user);
+	boolean changePassword(String username, String newPassword);
 }

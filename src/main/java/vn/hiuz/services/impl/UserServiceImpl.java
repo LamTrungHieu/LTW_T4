@@ -58,4 +58,8 @@ public class UserServiceImpl implements IUserService {
 		
 	}
 
+	public boolean changePassword(String username, String newPassword) {
+		return userDao.changePassword(username, newPassword);
+	}
+
 }

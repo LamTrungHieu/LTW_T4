@@ -204,4 +204,26 @@ public static void main(String[] args) {
 //	System.out.println(userDao.register("abc2", "abc@gmail.com", "123", "ABC2", ""));
 //	System.out.println(userDao.register("abc3", "abcd@gmail.com", "123", "ABC3", ""));
 	}
+
+@Override
+public boolean changePassword(String username, String newPassword) {
+	String sql = "UPDATE users SET password = ? WHERE username = ?";
+
+    try {
+        conn = getDatabaseConnection();
+        ps = conn.prepareStatement(sql);
+        ps.setString(1, newPassword);
+        ps.setString(2, username);
+        
+        int result = ps.executeUpdate();
+        if (result > 0) {
+            return true; // Password updated successfully
+        } else {
+            return false; // No rows updated, username not found
+        }
+    } catch (Exception e) {
+        e.printStackTrace();
+        return false; // An error occurred during the update
+    } 
+}
 }

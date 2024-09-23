@@ -30,9 +30,9 @@ public class RegisterController extends HttpServlet{
 		resp.setContentType("text/html");
 		resp.setCharacterEncoding("UTF-8");
 		req.setCharacterEncoding("UTF-8");
-		String username = req.getParameter("uname");
-		String password = req.getParameter("psw");
-		String passwordRepeat = req.getParameter("psw-repeat");
+		String username = req.getParameter("username");
+		String password = req.getParameter("password");
+		String passwordRepeat = req.getParameter("password-repeat");
 		String email = req.getParameter("email");
 		String fullname = req.getParameter("fullname");
 		String phone = req.getParameter("phone");
@@ -71,7 +71,7 @@ public class RegisterController extends HttpServlet{
 			// SendMail sm = new SendMail();
 			// sm.sendMail(email, "Shopping.iotstar.vn", "Welcome to Shopping. Please Login to use service. Thanks !");
 			req.setAttribute("alert", alertMsg);
-			resp.sendRedirect(req.getContextPath() + "/login");
+			resp.sendRedirect(req.getContextPath() + "/home");
 		} else {
 			alertMsg = "System error!";
 			req.setAttribute("alert", alertMsg);

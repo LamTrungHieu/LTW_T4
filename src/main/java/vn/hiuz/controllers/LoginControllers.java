@@ -31,8 +31,8 @@ public class LoginControllers extends HttpServlet {
 		 req.setCharacterEncoding("UTF-8");
 		 
 		 //  Lấy tham số tu view
-		 String username = req.getParameter("uname");
-		 String password = req.getParameter("psw");
+		 String username = req.getParameter("username");
+		 String password = req.getParameter("password");
 		 String remember = req.getParameter("remember");
 		 
 		 //kiểm tra tham số
@@ -56,7 +56,7 @@ public class LoginControllers extends HttpServlet {
 				  if(isRememberMe){
 				  saveRemeberMe(resp, username);
 			  }
-			  resp.sendRedirect(req.getContextPath()+"/waiting");
+			  resp.sendRedirect(req.getContextPath()+"/home");
 			  }else{
 			  alertMsg = "Tài khoản hoặc mật khẩu không đúng";
 			  req.setAttribute("alert", alertMsg);
