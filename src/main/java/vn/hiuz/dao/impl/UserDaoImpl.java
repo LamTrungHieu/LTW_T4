@@ -226,4 +226,25 @@ public boolean changePassword(String username, String newPassword) {
         return false; // An error occurred during the update
     } 
 }
+
+@Override
+public void update(String username, String fullname, String images, String phone) {
+	String sql = "UPDATE users SET fullname = ?, images = ?, phone = ? WHERE username = ?";
+
+	try {
+		conn = new DBConnectMySQL().getDatabaseConnection();
+
+		ps = conn.prepareStatement(sql);
+
+		ps.setString(1, fullname);
+		ps.setString(2, images);
+		ps.setString(3, phone);
+		ps.setString(4, username);
+
+		ps.executeUpdate();
+
+	} catch (Exception e) {
+		e.printStackTrace();
+	}
+}
 }
