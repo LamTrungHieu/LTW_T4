@@ -5,26 +5,15 @@
 <body>
 
 	<c:choose>
-		<c:when test="${sessionScope.account == null}">
-			<div class="col-sm-6">
-				<ul class="list-inline right-topbar pull-right">
-					<a href="${pageContext.request.contextPath }/login">Đăng
-							nhập</a> | <a href="${pageContext.request.contextPath }/register">Đăng Ký </a>
-					<i class="search fa fa-search search-button"></i>
-				</ul>
-			</div>
-		</c:when>
-		<c:otherwise>
-			<div class="col-sm-6">
-				<ul class="list-inline right-topbar pull-right">
-					
-						| <a href="${pageContext.request.contextPath }/logout">Đăng
-							xuất </a>
-							<i class="search fa fa-search search-button"></i>
-				</ul>
-			</div>
-		</c:otherwise>
-	</c:choose>
+						<c:when test="${sessionScope.account == null }">
+							<li><a href="${pageContext.request.contextPath }/login">Login</a></li>
+							<li><a href="${pageContext.request.contextPath }/register">Register</a></li>
+						</c:when>
+						<c:otherwise>
+							<li><a href="${pageContext.request.contextPath}/myaccount">${sessionScope.account.fullname}</a></li>
+							<li><a href="${pageContext.request.contextPath }/logout">Logout</a></li>
+						</c:otherwise>
+					</c:choose>
 </body>
 
         <!-- BEGIN SALE PRODUCT & NEW ARRIVALS -->

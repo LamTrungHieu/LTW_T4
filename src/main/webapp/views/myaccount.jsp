@@ -21,7 +21,7 @@
 										<div class="d-flex align-items-center">
 											<a href="#"
 												class="avatar avatar-lg bg-warning rounded-circle text-white">
-												<img alt="..." src="${image}" height="200px">
+												<img alt="..." src="${images}" height="200px">
 											</a>
 											<div class="ms-4">
 												<span class="h4 d-block mb-0">${fullname}</span>
